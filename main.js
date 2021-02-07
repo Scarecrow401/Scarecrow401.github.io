@@ -72,7 +72,9 @@ class WishItemsComponent {
         this.items = [];
     }
     ngOnInit() {
-        this.items = JSON.parse(this.wishListService.getWishlist());
+        if (this.wishListService.getWishlist()) {
+            this.items = JSON.parse(this.wishListService.getWishlist());
+        }
         this.form = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroup"]({
             title: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required),
             link: new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"](null, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required),
